@@ -1,0 +1,141 @@
+@font-face {
+	font-family: "font-1";
+	src: url(assets/font/PassionOne-Bold.ttf);
+}
+h1 {
+	color: rgb(44 44 44);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 8rem;
+    font-family: 'font-1', sans-serif;    	
+	margin: -5px 130px;
+	cursor: pointer;
+	animation: apparition 0.8s ease-out;
+	
+}
+body{
+	background-color: rgb(210, 210, 210);
+}
+.img{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	animation: apparition 0.8s ease-out;
+}
+#entete{
+	background: rgb(230 230 230);
+	padding: 10px 0px;
+	box-shadow: 0px 0px 20px 4px #8c68c7;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 125px;
+	width: 100%;
+	z-index: -1;
+	animation: apparition 0.8s ease-out;
+}
+nav ul{
+	list-style-type: none;
+}
+nav ul li{
+	float: left;
+}
+nav ul li a{
+  
+	color:rgb(44 44 44);
+	text-decoration: none;
+	font-family: 'font-1', sans-serif;
+	font-size: 1.5rem;
+	display: block;
+	margin: 20px;
+	animation: apparition 0.8s ease-out;
+}
+@keyframes apparition {
+	from {
+		opacity: 0;
+		transform: translateY(-100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+.menu{
+	position: absolute;
+	right: 30px;
+	top: 25px;
+}
+main div{
+	list-style-type: none;
+	height: 160px;
+	width: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+main div a:hover {
+  background-color: #ffffffbd ;
+  transition: .3s all;
+}
+nav a:hover{
+	background-color: #8c68c7bd;
+	transition: .2s all;
+}
+p{
+	font-family: Arial;
+}
+#pied-de-page{
+  font-family: Arial;
+	text-align: center;
+	background: rgb(230 230 230);
+	padding: 0px 0px;
+	box-shadow: 0px 0px 20px 4px #8c68c7;
+	position: absolute;
+	width: 100%;
+	height: 80px;
+	left: 0px;
+	top: 955px;
+	border-radius: 0 0 0 0;
+	z-index: 2;
+	animation: apparition 0.8s ease-out;
+}
+.background {
+  text-align: center;
+	padding: 10px 60px;
+	box-shadow: 0px 0px 20px 4px #8c68c7;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	border-radius: 0 0 0 0;
+	animation: apparition 0.8s ease-out;
+}
+.etiquette {
+  background: #ffffffba;
+	position: absolute;
+	width: 320px;
+	height: 80px;
+	left: 0px;
+	bottom: 0px;
+	border-radius: 0 0 0 0;
+  z-index: 10;
+}
+.txt-etiquette {
+  text-decoration: none;
+	text-transform: uppercase;
+	font-family: "font-1";
+	font-size: 2.2rem;
+	color: #2c2c2c;
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+  height: 160px;
+	width: 160px;
+	list-style-type: none;
+	display: flex;
+	align-items:flex-end;
+	justify-content: center;
+  z-index: 20;
+}
+.back {
+  display: flex;
+}

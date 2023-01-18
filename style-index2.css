@@ -1,0 +1,97 @@
+#texte1{
+  background: url(./assets/Info.jpg) center/cover;
+  left: 60px;
+	top: 205px;
+}
+#texte2{
+	background: url(./assets/calamar.jpg) center/cover;
+	left: 60px;
+	top: 440px;
+}
+#texte3{
+	background: url(./assets/Kraken.jpg) center/cover;
+	left: 60px;
+	top: 675px;
+}
+#texte4{
+	background: url(./assets/culture.jpg) center/cover;
+	left: 395px;
+	top: 675px;
+}
+#texte5{
+	background: url(./assets/Biologie.jpg) center/cover;
+	left: 395px;
+	top: 440px;
+}
+#texte6{
+	background: url(./assets/Milieu.jpg) center/cover;
+	left: 395px;
+	top: 205px;
+}
+#texte7{
+	background: url(./assets/Reproduction.jpg) center/cover;
+	right: 60px;
+	top: 205px;
+}
+#texte8{
+	background: url(./assets/anectodes.jpg) center/cover;
+	right: 60px;
+	top: 440px;
+}
+#texte9{
+	background: url(./assets/Passer\ le\ test.jpg) center/cover;
+	right: 60px;
+	top: 675px;
+}
+#texte10{
+	background: url(./assets/Mini-jeu.jpg) center/cover;
+	right: 395px;
+	top: 675px;
+}
+#texte11{
+	background: url(./assets/Intelligence.jpg) center/cover;
+	right: 395px;
+	top: 440px;
+}
+#texte12{
+	background: url(./assets/alimentation.jpg) center/cover;
+	right: 395px;
+	top: 205px;
+}
+
+#txt1 {
+  padding:60px 80px 0px 80px;
+}
+#txt2 {
+  padding:60px 80px 0px 80px;
+}
+#txt3 {
+  padding:45px 80px 15px 80px;
+}
+#txt4 {
+  padding:60px 80px 0px 80px;
+}
+#txt5 {
+  padding:45px 80px 15px 80px;
+}
+#txt6 {
+  padding:45px 80px 15px 80px;
+}
+#txt7 {
+  padding:45px 80px 15px 80px;
+}
+#txt8 {
+  padding:45px 80px 15px 80px;
+}
+#txt9 {
+  padding:60px 80px 0px 80px;
+}
+#txt10 {
+  padding:45px 80px 15px 80px;
+}
+#txt11 {
+  padding:45px 80px 15px 80px;
+}
+#txt12 {
+  padding:45px 80px 15px 80px;
+}
