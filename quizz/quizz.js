@@ -1,7 +1,6 @@
 let currentquestion = 0;
 let bonneReponse = 0;
-const nombreQuestion = 10;
-const nombreMaxReponse = 4;
+
 
 function quizz() 
 {
@@ -337,3 +336,6 @@ const question =
     }
   }
 };
+
+const nombreQuestion = Object.keys(question).length;
+const nombreMaxReponse = Object.keys(question[Object.keys(question)[0]]["reponse"]).length;
