@@ -124,10 +124,12 @@ button:hover {
 #popup-list{
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 50px;
   margin-top: 50px;
   border-radius: 5px;
+  
 }
 /* Popup container */
 .popup {
@@ -141,19 +143,18 @@ button:hover {
 .popup .popuptext {
   visibility: hidden;
   width: 280px;
-  background-color: #0f0d82;
-  color: #dbdbdb;
+  background-color: #dedede;
+  color: #02008a;
   text-align: center;
   border-radius: 6px;
   padding: 8px 0;
   position: absolute;
   z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -140px;
+  right : -280px;
+  height : 485px;
 }
 
-/* Popup arrow */
+/* Popup arrow
 .popup .popuptext::after {
   content: "";
   position: absolute;
@@ -164,7 +165,7 @@ button:hover {
   border-style: solid;
   border-color: #000000 transparent transparent transparent;
 }
-
+ */
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup .show {
   visibility: visible;

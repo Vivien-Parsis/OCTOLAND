@@ -1,32 +1,58 @@
-function popUp(id=0)
+
+function popUpZoom(id=0)
 {
   const alreadyzoom = document.getElementById(`pop-pup-${id}`).style.visibility=="visible";
-  for(let i = 0; i<keyocto.length;i++)
+  if(!alreadyzoom)
   {
-    if(keyocto[i]!=id || document.getElementById(`pop-pup-${id}`).style.visibility=="visible"){
-      document.getElementById(`pop-pup-${keyocto[i]}`).style.visibility="hidden";
-      document.getElementById(`img${keyocto[i]}`).width="400";
-      document.getElementById(`img${keyocto[i]}`).height="200";
-      if(!alreadyzoom)
-      {document.getElementById(`img${keyocto[i]}`).style.opacity="0.1";}
-      else
-      {document.getElementById(`img${keyocto[i]}`).style.opacity="1";}
-    }
-    else{
-      document.getElementById(`pop-pup-${id}`).style.visibility="visible";
-      document.getElementById(`img${keyocto[i]}`).width="800";
-      document.getElementById(`img${keyocto[i]}`).height="400";
-      document.getElementById(`img${keyocto[i]}`).style.opacity="1";
-    }         
-  }
-}
+    document.getElementById("popup-list").innerHTML = 
+    `<div class="popup" onclick="popUpZoom('${id}')"><img scr="" width="800" height="500" style="border-radius: 2px;"  id="img${id}">
+    <span class="popuptext" id="pop-pup-${id}" span>
+    </div>`; 
+    document.getElementById(`pop-pup-${id}`).style="visibility: visible;right: -140px;"
+    document.getElementById(`img${id}`).style="right: 140px;position: relative;";
+    for(let j = 0; j<subkey.length;j++){
+      if(subkey[j]=="img_src"){
+        document.getElementById(`img${id}`).src = listOcto[`${id}`][`${subkey[j]}`];
+        continue;
+      }
+      document.getElementById(`pop-pup-${id}`).innerHTML += `${subkey[j]} : ${listOcto[`${id}`][`${subkey[j]}`]}<br>`;
+    };
+  };
+  if(alreadyzoom){
+    document.getElementById("popup-list").innerHTML = "";
+    for(let i = 0; i<keyocto.length;i++){
+      document.getElementById("popup-list").innerHTML+=
+      `<div class="popup" onclick="popUpZoom('${keyocto[i]}')"><img width="400" height="200" style="border-radius: 2px;"  id="img${keyocto[i]}">
+      <span class="popuptext" id="pop-pup-${keyocto[i]}"></span>
+      </div>`;
+      document.getElementById(`pop-pup-${keyocto[i]}`).style="height: 5px;width: 5px;right:0px;";
+      document.getElementById(`img${keyocto[i]}`).src = listOcto[`${keyocto[i]}`]["img_src"];
+      document.getElementById(`pop-pup-${keyocto[i]}`).innerHTML = "";
+      };
+    };  
+};
 
 dbOcto = [
-  ["nom","nom scientifique","couleur","img_src"], 
-  ["Pieuvre blanche","Eledone cirrhosa","jaune,orange,rouge","octolist/images/Pieuvre-blanche.jpg"],
-  ["Poulpe boréal","Bathypolypus arcticus","brun-rose","octolist/images/poulpe-boreal.jpg"],
-  ["pieuvre commune","Octopus vulgaris","homochromie","octolist/images/pieuvre-commune.jpg"],
-  ["Pieuvre aux anneaux bleus","Hapalochlaena maculosa","homochromie, anneaux bleus","octolist/images/Pieuvre-aux-anneaux-bleus.jpg"]
+  ["Nom","Nom scientifique","Zone géographique","Taille",  "Couleur", "Description", "img_src"], 
+ ["Pieuvre à anneaux bleus","Hapalochlaena maculosa", "Côtes australiennes, Océan Indien et Pacifique", "10 à 15cm", "beige ou jaune pâle avec des anneaux bleus", "Cette pieuvre est l’une des rares capables de tuer un humain avec son poison. Ces anneaux bleus luminescent servent à prévenir les prédateurs de la dangerosité de l’animal", "octolist/images/Pieuvre-aux-anneaux-bleus.jpg"],
+
+["Pieuvre blanche","Eledone cirrhosa","Atlantique Nord-Est, la Manche, la mer Méditerranée et la mer du Nord","50cm","jaune,orange,rouge","Eledone cirrhosa représente une importante source de commerce dans le bassin méditerranéen","octolist/images/Pieuvre-blanche.jpg"],
+
+["Poulpe boréal","Bathypolypus arcticus","Atlantique Nord-Ouest et Nord-Est","6 à 10 cm","brun-rose","Sa longévité serait supérieur à 3 voire 6 ans ce qui est beaucoup plus que la moyennes des autres poulpes","octolist/images/poulpe-boreal.jpg"],
+
+["Pieuvre commune","Octopus vulgaris","Répartition Mondiale","60 à 120cm","homochromie","En Méditerranée, il est interdit de pêcher le poulpe commun dans le Parc National des Calanques entre le 1er juin et le 30 septembre pour le protéger pendant sa période de reproduction.","octolist/images/pieuvre-commune.jpg"],
+
+["Pieuvre chatrou de nuit", "Octopus briareus","Caraïbes", "30 à 60cm", "brun-rouge tacheté","Aussi appelé poulpe de récif caraïbe, on ne rencontre ce poulpe que la nuit. Il se distingue des autres espèces de poulpes avec son anneau brun foncé autour des yeux.", "octolist/images/caraibes.jpg"],
+
+["Poulpe de récif","Octopus Cyanea","Mer Rouge et Indo-Pacifique", "40 à 140cm", "rouge, marron, violet", "Aussi appelé pieuvre diurne, on le retrouvera dans les récifs de corail. Il est surtout observé pendant la période des amours.","octolist/images/récif.jpg"],
+
+["Pieuvre mimétique", "Thaumoctopus mimicus","Malaisie et Indonésie","60 à 100cm","zébré rouge et blanc", "La pieuvre mimétique est la seule espèce connue à se faire passer pour un autre animal. Elle peut ainsi se camoufler en méduse, en sole, en anémone, en crevette, en étoile de mer ou encore en murène","octolist/images/mimétique.jpg"],
+
+["Pieuvre géante du Pacifique","Enteroctopus dofleini","Pacifique Nord","9m","Rouge","Ces pieuvres vieillissent de façon très semblable aux humains, leur système immunitaire devient inopérant, elles deviennent séniles et ne peuvrent plus se nourrir.","octolist/images/géante.jpg"],
+
+["Poulpe tacheté","Callistoctopus macropus","Mers tempérées et chaudes, Atlantique, Indo-Pacifique","80 à 150cm", "marron rougeâtre avec des tâches blanches","Cette espèce peut se nourrir d'autre poulpe","octolist/images/tacheté.jpg"],
+
+
 ];
 
 let listOcto = {};
@@ -47,19 +73,13 @@ const subkey = dbOcto[0];
 for(let i = 0; i<keyocto.length;i++)
   {
     document.getElementById("popup-list").innerHTML+=
-    `<div class="popup" onclick="popUp('${keyocto[i]}')"><img  width="400" height="200"  id="img${keyocto[i]}">
+    `<div class="popup" onclick="popUpZoom('${keyocto[i]}')"><img width="400" height="200" style="border-radius: 2px;"  id="img${keyocto[i]}">
     <span class="popuptext" id="pop-pup-${keyocto[i]}"></span>
     </div>`;
-    //rajoute les information et l'image
-    for(let j = 0; j<subkey.length;j++)
-    {
-      if(subkey[j]=="img_src")
-      {
-        document.getElementById(`img${keyocto[i]}`).src = listOcto[`${keyocto[i]}`][`${subkey[j]}`];
-        continue;
-      }
-      document.getElementById(`pop-pup-${keyocto[i]}`).innerHTML += `${subkey[j]} : ${listOcto[`${keyocto[i]}`][`${subkey[j]}`]}<br>`;
-    }
+    document.getElementById(`pop-pup-${keyocto[i]}`).style="height: 5px;width: 5px;right:0px";
+    //rajoute l'image
+    document.getElementById(`img${keyocto[i]}`).src = listOcto[`${keyocto[i]}`][`img_src`];
+    
   };
 
 function tabtoObject(tab){
