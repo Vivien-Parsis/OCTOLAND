@@ -7,7 +7,7 @@
 	src: url(../assets/font/PassionOne-Regular.ttf);
 }
 h1{
-	color: rgb(44 44 44);
+	color: rgb(185 184 184);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 8rem;
@@ -16,7 +16,7 @@ h1{
 	animation: apparition 0.8s ease-out;
 }
 body{
-	background-color: rgb(210, 210, 210);
+	background-color: rgb(43 43 43);
   
 }
 .img{
@@ -26,7 +26,7 @@ body{
 	animation: apparition 0.8s ease-out;
 }
 #entete{
-	background: rgb(230 230 230);
+	background: rgb(22 22 22 / 56%);
 	padding: 10px 0px;
 	box-shadow: 0px 0px 20px 4px #8c68c7;
 	position: absolute;
@@ -48,7 +48,7 @@ nav ul li{
 	float: left;
 }
 nav ul li a{
-	color:rgb(44 44 44);
+	color:rgb(185 184 184);
 	text-decoration: none;
 	font-family: 'font-1', sans-serif;
 	font-size: 1.5rem;
@@ -92,9 +92,10 @@ main p{
 	animation: apparition 0.8s ease-out;
 }
 #pied-de-page{
+  color: rgb(185 184 184);
   font-family: Arial;
 	text-align: center;
-	background: rgb(230 230 230);
+	background: rgb(22 22 22 / 56%);
 	padding: 0px 0px;
 	box-shadow: 0px 0px 20px 4px #8c68c7;
 	position: absolute;
@@ -120,7 +121,10 @@ button:hover {
   background-color: #8c68c7bd;
 	transition: .2s all;
 }
-
+.popup:hover{
+  cursor: pointer;
+  transform:scale(1.08);
+}
 #popup-list{
   display: flex;
   align-items: center;
@@ -137,6 +141,8 @@ button:hover {
   display: inline-block;
   cursor: pointer;
   margin: 10px;
+  animation: apparition 0.8s ease-out;
+  transition: transform .4s;
 }
 
 /* The actual popup (appears on top) */
@@ -144,14 +150,13 @@ button:hover {
   visibility: hidden;
   width: 280px;
   background-color: #dedede;
-  color: #02008a;
+  color: #000000;
   text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
+  padding: 125px 15px 0px 15px;
   position: absolute;
   z-index: 1;
-  right : -280px;
-  height : 485px;
+  right : 280px;
+  height : 375px;
 }
 
 /* Popup arrow
@@ -176,4 +181,21 @@ button:hover {
   visibility: hidden;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
+}
+
+@keyframes zoomin{
+from {
+		transform: scale(0.5);
+	}
+	to {
+		transform: scale(1);
+	}  
+}
+@keyframes zoomout{
+from {
+		transform: scale(2);
+	}
+	to {
+		transform: scale(1);
+	}  
 }

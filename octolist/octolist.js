@@ -1,42 +1,47 @@
-
 function popUpZoom(id=0)
 {
-  const alreadyzoom = document.getElementById(`pop-pup-${id}`).style.visibility=="visible";
-  if(!alreadyzoom)
-  {
+  let alreadyzoom = true;
+  if(id!=0)
+  {alreadyzoom = document.getElementById(`pop-pup-${id}`).style.visibility=="visible";}
+  
+  if(!alreadyzoom){
     document.getElementById("popup-list").innerHTML = 
-    `<div class="popup" onclick="popUpZoom('${id}')"><img scr="" width="800" height="500" style="border-radius: 2px;"  id="img${id}">
+    `<div class="popup" style="animation:none;" onclick="popUpZoom('${id}')"><img scr="" width="800" height="500" style="border-radius: 2px;"  id="img${id}">
     <span class="popuptext" id="pop-pup-${id}" span>
     </div>`; 
     document.getElementById(`pop-pup-${id}`).style="visibility: visible;right: -140px;"
-    document.getElementById(`img${id}`).style="right: 140px;position: relative;";
+    document.getElementById(`img${id}`).style=`right: 140px;position: relative;animation:zoomin 1s;`;
     for(let j = 0; j<subkey.length;j++){
       if(subkey[j]=="img_src"){
         document.getElementById(`img${id}`).src = listOcto[`${id}`][`${subkey[j]}`];
         continue;
       }
-      document.getElementById(`pop-pup-${id}`).innerHTML += `${subkey[j]} : ${listOcto[`${id}`][`${subkey[j]}`]}<br>`;
+      document.getElementById(`pop-pup-${id}`).innerHTML += `${subkey[j]} : ${listOcto[`${id}`][`${subkey[j]}`]}<br>`;  
     };
+    document.getElementById("mn2").innerHTML = `<a style="animation:none;" onclick="popUpZoom()">RETOUR</a>`;
   };
   if(alreadyzoom){
     document.getElementById("popup-list").innerHTML = "";
     for(let i = 0; i<keyocto.length;i++){
       document.getElementById("popup-list").innerHTML+=
-      `<div class="popup" onclick="popUpZoom('${keyocto[i]}')"><img width="400" height="200" style="border-radius: 2px;"  id="img${keyocto[i]}">
+      `<div class="popup" style="animation:none;" onclick="popUpZoom('${keyocto[i]}')">
+      <img width="400" height="200" style="border-radius: 2px;" id="img${keyocto[i]}">
       <span class="popuptext" id="pop-pup-${keyocto[i]}"></span>
       </div>`;
       document.getElementById(`pop-pup-${keyocto[i]}`).style="height: 5px;width: 5px;right:0px;";
       document.getElementById(`img${keyocto[i]}`).src = listOcto[`${keyocto[i]}`]["img_src"];
       document.getElementById(`pop-pup-${keyocto[i]}`).innerHTML = "";
       };
-    };  
+    document.getElementById("mn2").innerHTML = `<a style="animation:none;" href="1info-general.html">RETOUR</a>`;
+    };    
 };
 
 dbOcto = [
-  ["Nom","Nom scientifique","Zone géographique","Taille",  "Couleur", "Description", "img_src"], 
- ["Pieuvre à anneaux bleus","Hapalochlaena maculosa", "Côtes australiennes, Océan Indien et Pacifique", "10 à 15cm", "beige ou jaune pâle avec des anneaux bleus", "Cette pieuvre est l’une des rares capables de tuer un humain avec son poison. Ces anneaux bleus luminescent servent à prévenir les prédateurs de la dangerosité de l’animal", "octolist/images/Pieuvre-aux-anneaux-bleus.jpg"],
+["Nom","Nom scientifique","Zone géographique","Taille",  "Couleur", "Description", "img_src"], 
+  
+["Pieuvre à anneaux bleus","Hapalochlaena maculosa", "Côtes australiennes, Océan Indien et Pacifique", "10 à 15cm", "beige ou jaune pâle avec des anneaux bleus", "Cette pieuvre est l’une des rares capables de tuer un humain avec son poison. Ces anneaux bleus luminescent servent à prévenir les prédateurs de la dangerosité de l’animal", "octolist/images/Pieuvre-aux-anneaux-bleus.jpg"],
 
-["Pieuvre blanche","Eledone cirrhosa","Atlantique Nord-Est, la Manche, la mer Méditerranée et la mer du Nord","50cm","jaune,orange,rouge","Eledone cirrhosa représente une importante source de commerce dans le bassin méditerranéen","octolist/images/Pieuvre-blanche.jpg"],
+["Pieuvre blanche","Eledone cirrhosa","Atlantique Nord-Est, la Manche, la mer Méditerranée et la mer du Nord","50cm","jaune, orange, rouge","Eledone cirrhosa représente une importante source de commerce dans le bassin méditerranéen","octolist/images/Pieuvre-blanche.jpg"],
 
 ["Poulpe boréal","Bathypolypus arcticus","Atlantique Nord-Ouest et Nord-Est","6 à 10 cm","brun-rose","Sa longévité serait supérieur à 3 voire 6 ans ce qui est beaucoup plus que la moyennes des autres poulpes","octolist/images/poulpe-boreal.jpg"],
 
@@ -50,9 +55,7 @@ dbOcto = [
 
 ["Pieuvre géante du Pacifique","Enteroctopus dofleini","Pacifique Nord","9m","Rouge","Ces pieuvres vieillissent de façon très semblable aux humains, leur système immunitaire devient inopérant, elles deviennent séniles et ne peuvrent plus se nourrir.","octolist/images/géante.jpg"],
 
-["Poulpe tacheté","Callistoctopus macropus","Mers tempérées et chaudes, Atlantique, Indo-Pacifique","80 à 150cm", "marron rougeâtre avec des tâches blanches","Cette espèce peut se nourrir d'autre poulpe","octolist/images/tacheté.jpg"],
-
-
+["Poulpe tacheté","Callistoctopus macropus","Mers tempérées et chaudes, Atlantique, Indo-Pacifique","80 à 150cm", "marron rougeâtre avec des tâches blanches","Cette espèce peut se nourrir d'autre poulpe","octolist/images/tacheté.jpg"]    
 ];
 
 let listOcto = {};
@@ -70,30 +73,24 @@ const subkey = dbOcto[0];
 //};
 
 //construit sur la page HTML, la liste des popup
-for(let i = 0; i<keyocto.length;i++)
-  {
-    document.getElementById("popup-list").innerHTML+=
-    `<div class="popup" onclick="popUpZoom('${keyocto[i]}')"><img width="400" height="200" style="border-radius: 2px;"  id="img${keyocto[i]}">
-    <span class="popuptext" id="pop-pup-${keyocto[i]}"></span>
-    </div>`;
-    document.getElementById(`pop-pup-${keyocto[i]}`).style="height: 5px;width: 5px;right:0px";
-    //rajoute l'image
-    document.getElementById(`img${keyocto[i]}`).src = listOcto[`${keyocto[i]}`][`img_src`];
-    
-  };
+for(let i = 0; i<keyocto.length;i++){
+  document.getElementById("popup-list").innerHTML+=
+  `<div class="popup" onclick="popUpZoom('${keyocto[i]}')"><img width="400" height="200" style="border-radius: 2px;"  id="img${keyocto[i]}">
+  <span class="popuptext" id="pop-pup-${keyocto[i]}"></span>
+  </div>`;
+  document.getElementById(`pop-pup-${keyocto[i]}`).style="height: 5px;width: 5px;right:0px";
+  //rajoute l'image
+  document.getElementById(`img${keyocto[i]}`).src = listOcto[`${keyocto[i]}`][`img_src`];
+};
 
 function tabtoObject(tab){
   const header = tab[0];
   let obj = {};
-  for(let i = 1;i<tab.length; i++)
-  {
+  for(let i = 1;i<tab.length; i++){
     obj[`id${i}`] = {};
-    for(let j = 0; j<header.length; j++)
-    {
+    for(let j = 0; j<header.length; j++){
       obj[`id${i}`][`${header[j]}`]=tab[i][j];
-    }
-  }
+    };
+  };
   return obj;
 };
-
-//document.addEventListener("dblclick",popUp());
