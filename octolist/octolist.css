@@ -152,11 +152,12 @@ button:hover {
   background-color: #dedede;
   color: #000000;
   text-align: center;
-  padding: 125px 15px 0px 15px;
+  padding: 105px 15px 0px 15px;
   position: absolute;
   z-index: 1;
   right : 280px;
-  height : 375px;
+  height : 390px;
+  font-family: Arial, sans-serif;
 }
 
 /* Popup arrow

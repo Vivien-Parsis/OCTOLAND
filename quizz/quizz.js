@@ -4,7 +4,6 @@ let bonneReponse = 0;
 
 function quizz() 
 {
-  //document.getElementById("pied-de-page").style.position= "absolute";
   if (currentquestion > 0) 
   { 
     let x = 0;
@@ -30,7 +29,6 @@ function quizz()
     {
       alert("Mauvaise réponse !");
     }
-          
   }
    
   currentquestion += 1;
@@ -64,7 +62,6 @@ function quizz()
     document.getElementById("question").innerHTML = question[`question${currentquestion}`][`question`];
     document.getElementById("score").innerHTML = `score : ${bonneReponse}/10`;
     document.getElementById("titre").innerHTML = `Question : ${currentquestion}/10`;
-
     //change les reponses
     for(let i = 1; i<=nombreMaxReponse; i++)
     {
@@ -87,7 +84,7 @@ function quizz()
   //création page de fin de quizz    
   if (currentquestion == nombreQuestion+1) 
   {
-    document.getElementById("p").innerHTML = `<br><br>`
+    document.getElementById("p").innerHTML = `<br><br>`;
     document.getElementById("titre").innerHTML = `Resultat`;
     if (bonneReponse == 0) {
       document.getElementById("p").innerHTML += `<span id="lose">Vous n'avez trouvé aucune réponse !!</span><br><br>`;
@@ -102,8 +99,6 @@ function quizz()
        document.getElementById("p").innerHTML += `<span id="win">Fécilitation, vous avez trouvé toute les bonnes réponses !</span><br><br>`;
     }
     document.getElementById("p").innerHTML += `<br><br><button id="buttonreset" onclick="reset()">Recommencer</button>`;
-
-    
   }
 }
 
@@ -336,6 +331,6 @@ const question =
     }
   }
 };
-
+console.log(question);
 const nombreQuestion = Object.keys(question).length;
 const nombreMaxReponse = Object.keys(question[Object.keys(question)[0]]["reponse"]).length;
